@@ -21,11 +21,11 @@ jobs:
 
       # Change directory to 'develop' and install dependencies
       - name: Install dependencies
-        run: cd develop && npm install
+        run: cd Develop && npm install
 
       # Run build (if needed) and deploy to Render
       - name: Build project
-        run: cd develop && npm run build  # Adjust as per your project structure
+        run: cd Develop && npm run build  # Adjust as per your project structure
 
       - name: Deploy to Render
         run: render deploy --branch main  # Adjust with the actual Render CLI command
