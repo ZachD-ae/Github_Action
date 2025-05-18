@@ -1,0 +1,29 @@
+name: Deploy to Render on Merge to Main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+     
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  
+     
+      - name: Install dependencies
+        run: npm install
+
+      # Deploy to Render (you'll need to use the Render CLI or a custom script for deployment)
+      - name: Deploy to Render
+        run: |
+          curl -fsSL https://render.com/install.sh | bash
+          render deploy --branch main  
